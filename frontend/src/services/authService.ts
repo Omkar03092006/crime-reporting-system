@@ -1,7 +1,7 @@
 // services/authService.ts
 import axios from 'axios';
 
-const API_URL = 'const API = "https://backend-production-XXXXX.up.railway.app/api/auth";';
+const API_URL = 'const API = "https://backend-production-39676.up.railway.app/api";
 
 // Configure axios defaults
 axios.defaults.withCredentials = true;

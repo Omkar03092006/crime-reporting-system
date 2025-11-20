@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "noEmit": true,
-    "skipLibCheck": true,
-
-    "strict": false,
     "checkJs": false,
+    "noEmit": true,
 
+    "skipLibCheck": true,
+    "strict": false,
     "esModuleInterop": true,
+
     "module": "esnext",
     "target": "ES2017",
     "moduleResolution": "bundler",
@@ -19,6 +19,6 @@
     }
   },
 
-  "include": ["."],
-  "exclude": ["node_modules"]
+  "include": ["**/*.js", "**/*.jsx"],
+  "exclude": ["**/*.ts", "**/*.tsx", "node_modules"]
 }

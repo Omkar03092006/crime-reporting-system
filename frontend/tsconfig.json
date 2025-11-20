@@ -3,22 +3,27 @@
     "allowJs": true,
     "checkJs": false,
     "noEmit": true,
-
     "skipLibCheck": true,
     "strict": false,
     "esModuleInterop": true,
-
     "module": "esnext",
     "target": "ES2017",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "jsx": "preserve",
-
     "paths": {
       "@/*": ["./src/*"]
     }
   },
 
-  "include": ["**/*.js", "**/*.jsx"],
-  "exclude": ["**/*.ts", "**/*.tsx", "node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    ".next/types/**/*.ts"
+  ],
+
+  "exclude": ["node_modules"]
 }

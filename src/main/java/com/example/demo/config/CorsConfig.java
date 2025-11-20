@@ -17,7 +17,7 @@ public class CorsConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
             .allowedOrigins(
                 "http://localhost:3000",
-                "https://<your-frontend>.up.railway.app"
+                "https://crimefrontend-production.up.railway.app"
             )
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
             .allowedHeaders("*")

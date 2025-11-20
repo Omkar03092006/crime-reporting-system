@@ -1,4 +1,4 @@
-package com.example.demo.config; // 🔹 Make sure this matches your package structure
+package com.example.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +15,10 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(@NonNull CorsRegistry registry) {
         registry.addMapping("/**")
-            .allowedOrigins("http://localhost:3000")
+            .allowedOrigins(
+                "http://localhost:3000",
+                "https://<your-frontend>.up.railway.app"
+            )
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
             .allowedHeaders("*")
             .allowCredentials(true)
@@ -26,19 +29,14 @@ public class CorsConfig implements WebMvcConfigurer {
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        
-        // Allow all origins for development - update this for production
+
         config.addAllowedOrigin("http://localhost:3000");
+        config.addAllowedOrigin("https://<your-frontend>.up.railway.app");
         
-        // Allow all HTTP methods
         config.addAllowedMethod("*");
-        
-        // Allow all headers
         config.addAllowedHeader("*");
-        
-        // Allow credentials (cookies, authorization headers, etc.)
         config.setAllowCredentials(true);
-        
+
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }

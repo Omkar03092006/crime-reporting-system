@@ -1,16 +1,21 @@
-// eslint.config.mjs
-export default [
-  {
-    ignores: ["**/*.ts", "**/*.tsx"],
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "strict": false,
+
+    "esModuleInterop": true,
+    "module": "esnext",
+    "target": "ES2017",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+
+    "types": []
   },
-  {
-    rules: {
-      "react/no-unescaped-entities": "off",
-      "react-hooks/exhaustive-deps": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/ban-ts-comment": "off",
-      "no-unused-vars": "off",
-      "no-undef": "off"
-    }
-  }
-];
+
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "build", ".next"]
+}

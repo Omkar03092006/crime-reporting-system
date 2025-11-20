@@ -1,6 +1,5 @@
 package com.example.demo.config;
 
-
 import java.util.Arrays;
 
 import org.springframework.context.annotation.Bean;
@@ -24,13 +23,19 @@ public class SecurityConfig {
         http
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable())
-            .sessionManagement(session -> 
+            .sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
             .authorizeHttpRequests(auth -> auth
+                // 🔥 ALLOW REGISTER & LOGIN
+                .requestMatchers("/api/register").permitAll()
+                .requestMatchers("/api/login").permitAll()
+
+                // your other public endpoints
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/api/admin/**").permitAll()
                 .requestMatchers("/api/crimes/**").permitAll()
+
                 .anyRequest().authenticated()
             );
 
@@ -50,7 +55,7 @@ public class SecurityConfig {
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
 
-        UrlBasedCorsConfigurationSource source = 
+        UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;

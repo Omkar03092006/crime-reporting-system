@@ -39,7 +39,7 @@ public class SecurityConfig {
         
         configuration.setAllowedOrigins(Arrays.asList(
             "http://localhost:3000",
-            "https://crimefrontend-production.up.railway.app"
+            "https://frontend.up.railway.app"
         ));
         
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
